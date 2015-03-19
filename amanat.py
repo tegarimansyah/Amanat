@@ -3,6 +3,7 @@ from __future__ import print_function
 import os
 import sys
 import mmap
+import about
 
 
 # config
@@ -84,10 +85,8 @@ def add():
 		print ("Display exists person:")
 		j = i + 1
 		while  j < os.fstat(listfile.fileno()).st_size: # prevent EOF
-			if search[j] == "#" :
-				pass
-			else :
-				print (search[j],end='')
+			if search[j] >= "a" and search[j] <= "z" or search[j] >= "A" and search[j] <= "Z" :
+				print (search[j],end='')	
 			j += 1
 		search.seek(0)	
 		nama = str(raw_input("\nchoose (or write new person): ")) # can make more than 1 word
@@ -191,14 +190,6 @@ def help():
 def version():
 	print ("Amanat v0.01")
 
-# about
-def about():
-	print ("""
-	Amanat - Save a message that trusted to you
-	by : Tegar Imansyah
-	http://github.com/tegarimansyah/Amanat/
-		""")
-
 # check argument
 if len(sys.argv) == 1 :
 	random()
@@ -219,6 +210,6 @@ elif str(sys.argv[1]) == "help" :
 elif str(sys.argv[1]) == "version" :
 	version()
 elif str(sys.argv[1]) == "about" :
-	about()
+	about.about()
 else :
 	print ("Wrong Options")
