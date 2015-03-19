@@ -1,0 +1,2 @@
+#random
+print "random function"

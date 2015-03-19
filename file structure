@@ -4,10 +4,11 @@ Amanat-master
 | 	 | -- about.py
 | 	 | -- add.py
 | 	 | -- config.py
+| 	 | -- do_something.py
 | 	 | -- help.py
 | 	 | -- merge.py
-| 	 | -- remove.py
 | 	 | -- random.py
+| 	 | -- remove.py
 | 	 | -- rename.py
 | 	 | -- version.py
 | 	 ` -- view.py
