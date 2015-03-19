@@ -1,2 +1,0 @@
-#random
-print "random function"

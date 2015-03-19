@@ -10,10 +10,10 @@ def menu(fromdo):
 	else :
 		argv = do.argv
 
-	if len(argv) == 1:
-		print "random"
+	if len(argv) <= 1 :
+		rando.rando()
 	elif str(argv[1]) == "random":
-		print "random"
+		rando.rando()
 	elif str(argv[1]) == "view":
 		view.data(argv)
 	elif str(argv[1]) == "add":
@@ -38,6 +38,7 @@ def menu(fromdo):
 
 # first run
 # make folder and file
+os.system('cls')
 print "Initialize ", version.now(), ", Please Wait..."
 if not os.path.exists(config.listpath):
 	if not os.path.exists(config.path):
@@ -60,7 +61,7 @@ fromdo = 1
 while not exit:
 	print config.your_name, ": ",
 	do.something()
-	if str(do.argv[1]) == "exit" :
+	if len(do.argv) > 1 and str(do.argv[1]) == "exit" :
 		break
 	menu(fromdo)
 print "Selamat Menjalankan Amanat"

@@ -1,4 +1,4 @@
-__all__ = ['config','about','help','version','do','add','view']
+__all__ = ['config','about','help','version','do','add','view','rando']
 
 # import pkgutil
 # import inspect

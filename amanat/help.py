@@ -8,6 +8,7 @@ def me() :
 	$: amanat.py [Options]
 
 	-- Options
+	[random | view | add | remove | merge | rename | help | version | about | exit]
 
 	> random
 	Default options. Display random message from random person.
@@ -24,6 +25,9 @@ def me() :
 	> merge [all|name] [all|number of message] [all|name] [all|number of message] [merge name]
 	You can merge 2 message from 2 person. Merge name is the merge message will be save. Old messege will be delete.
 
+	>rename
+	rename someone
+
 	> help 
 	Display this help.
 
@@ -32,5 +36,8 @@ def me() :
 
 	> about
 	Display about this program
+
+	> exit
+	exit
 
 		"""
