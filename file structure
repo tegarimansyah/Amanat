@@ -1,0 +1,16 @@
+Amanat-master
+| -- amanat
+| 	 | -- __init__.py
+| 	 | -- about.py
+| 	 | -- add.py
+| 	 | -- config.py
+| 	 | -- do_something.py
+| 	 | -- help.py
+| 	 | -- merge.py
+| 	 | -- random.py
+| 	 | -- remove.py
+| 	 | -- rename.py
+| 	 | -- version.py
+| 	 ` -- view.py
+| -- main.py
+` -- README.md
