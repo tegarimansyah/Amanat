@@ -1,1 +1,2 @@
-print "merge function"
+def merge():
+	print "under construction"

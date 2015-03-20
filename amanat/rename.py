@@ -1,1 +1,2 @@
-print "rename function"
+def rename():
+	print "under construction"

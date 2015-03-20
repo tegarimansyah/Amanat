@@ -19,11 +19,11 @@ def menu(fromdo):
 	elif str(argv[1]) == "add":
 		add.new(argv)
 	elif str(argv[1]) == "remove":
-		print "remove"
+		remove.remove()
 	elif str(argv[1]) == "rename":
-		print "rename"
+		rename.rename()
 	elif str(argv[1]) == "merge":
-		print "merge"
+		merge.merge()
 	elif str(argv[1]) == "help":
 		help.me()
 	elif str(argv[1]) == "version":
@@ -36,30 +36,35 @@ def menu(fromdo):
 	else :
 		print ("Wrong Options")
 
-# first run
-# make folder and file
-os.system('cls')
-print "Initialize ", version.now(), ", Please Wait..."
-if not os.path.exists(config.listpath):
-	if not os.path.exists(config.path):
-		os.makedirs(config.path)
+def firstrun():
+	if not os.path.exists(_config.path):
+		os.makedirs(_config.path)
 	try : 
-		listfile = open(config.listpath, 'w')
-		listfile.write(config.your_name + '\'s Amanat List:\n')
+		listfile = open(_config.listpath, 'w')
+		listfile.write("0 " + _config.your_name + '\'s Amanat List:\n')
 		listfile.close()
-		print "Welcome, ", config.your_name
+		print "Welcome, ", _config.your_name
 	except IOError, e:
 		print "failed : ", e
+# first run
+# make folder and file
+if os.name == 'nt':
+	os.system('cls')
+else:
+	os.system('clear')
+print "Initialize ", version.now(), ", Please Wait..."
+if not os.path.exists(_config.listpath):
+	firstrun()
 else :
-	print "Welcome Back, ",config.your_name
-print "--------------------------------------------------"
+	print "Welcome Back, ",_config.your_name
 
+print "--------------------------------------------------"
 exit = 0
 fromdo = 0
 menu(fromdo)
 fromdo = 1
 while not exit:
-	print config.your_name, ": ",
+	print _config.your_name, ": ",
 	do.something()
 	if len(do.argv) > 1 and str(do.argv[1]) == "exit" :
 		break

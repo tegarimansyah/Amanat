@@ -1,10 +1,10 @@
 from __future__ import print_function
 import mmap
 import os
-import config
+import _config
 
 def data(argv) :
-	listfile = open(config.listpath, 'a+')
+	listfile = open(_config.listpath, 'a+')
 	search = mmap.mmap(listfile.fileno(), 0, access=mmap.ACCESS_READ)
 	error = 0
 	i = 0
@@ -30,21 +30,26 @@ def data(argv) :
 		print ("your argument is too much")
 		error = 1
 
-	if not error and os.path.exists(config.path + nama + ".txt"):
-		namafile = open(config.path + nama + ".txt", 'a+')
-		namafiles = mmap.mmap(namafile.fileno(), 0, access=mmap.ACCESS_READ)
-		j = 0
+	if not error and os.path.exists(_config.path + nama + ".txt"):
+		namafile = open(_config.path + nama + ".txt", 'a+')
+		# Old algorithm
+		# namafiles = mmap.mmap(namafile.fileno(), 0, access=mmap.ACCESS_READ)
+		# j = 0
+		# pesanke = 1
+		# print(nama," said that :\n\n",pesanke,". ",end="")
+		# while  j < os.fstat(namafile.fileno()).st_size: # prevent EOF
+		# 	if namafiles[j] == "#" :
+		# 		if os.fstat(namafile.fileno()).st_size - j > 3 :
+		# 			pesanke += 1
+		# 			print ("\n",pesanke,". ",end=''),
+		# 	else :
+		# 		print (namafiles[j].rstrip("\n"),end='')
+		# 	j += 1
+		# print ("\n")
+		# namafiles.close
 		pesanke = 1
-		print(nama," said that :\n\n",pesanke,". ",end="")
-		while  j < os.fstat(namafile.fileno()).st_size: # prevent EOF
-			if namafiles[j] == "#" :
-				if os.fstat(namafile.fileno()).st_size - j > 3 :
-					pesanke += 1
-					print ("\n",pesanke,". ",end=''),
-			else :
-				print (namafiles[j].rstrip(),end='')
-			j += 1
-		print ("\n")
-		namafiles.close
+		for line in namafile :
+			print (pesanke,".", line.strip().strip('#'))
+			pesanke += 1
 		namafile.close
 	search.close

@@ -1,10 +1,10 @@
 from __future__ import print_function
 import mmap
 import os
-import config
+import _config
 
 def new(argv) :
-	listfile = open(config.listpath, 'a+')
+	listfile = open(_config.listpath, 'a+')
 	search = mmap.mmap(listfile.fileno(), 0, access=mmap.ACCESS_WRITE)
 	error = 0
 	i = 0
@@ -30,9 +30,10 @@ def new(argv) :
 		print ("your argument is too much")
 		error = 1
 
+	nama = nama.lower()
 	if not error:
 		try : 
-			namafile = open(config.path + nama + ".txt", 'a+')
+			namafile = open(_config.path + nama + ".txt", 'a+')
 			if search.find(nama + " ") != -1 : # already exist
 				j = i + 1
 				lennama = len(nama) + 1
@@ -56,6 +57,13 @@ def new(argv) :
 				search[j+lennama:j+lennama+k] = str(int(x)+1)
 			else :
 				listfile.write(nama + " 1#\n")
+				i = 0
+				z = 0
+				numb = ""
+				while search[z] != " " :
+					numb = numb + search[z]
+					z += 1
+				search[0:z] = str(int(numb)+1)
 			namafile.write(message + " #\n")
 			namafile.close()
 			print ("Success")
