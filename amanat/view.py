@@ -14,7 +14,7 @@ def data(argv) :
 		print ("Display exists person:")
 		j = i + 1
 		while  j < os.fstat(listfile.fileno()).st_size: # prevent EOF
-			if search[j] >= "a" and search[j] <= "z" or search[j] >= "A" and search[j] <= "Z" :
+			if search[j] != " " and not (search[j] >= "0" and search[j] <= "9") and search[j] != "#":
 				print (search[j],end='')				
 			j += 1
 		search.seek(0)	

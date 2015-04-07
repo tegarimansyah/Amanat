@@ -70,3 +70,4 @@ while not exit:
 		break
 	menu(fromdo)
 print "Selamat Menjalankan Amanat"
+time.sleep(3)

@@ -13,6 +13,7 @@ def something() :
 		else :
 			argv.append(inp[i])
 		i += 1
+	
 
 def argv():
 	return argv
