@@ -1,1 +1,2 @@
-print "remove function"
+def remove():
+	print "under construction"

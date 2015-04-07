@@ -6,5 +6,5 @@
 
 # Config
 your_name = "Tegar Imansyah"
-path = "../coba/"
+path = "../amanat " + your_name + "/"
 listpath = path + "list.txt"

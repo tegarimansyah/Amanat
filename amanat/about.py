@@ -8,7 +8,7 @@ def short():
 		"""
 def all():
 	print """
-	Thanks
+	Under Construction
 
 
 
